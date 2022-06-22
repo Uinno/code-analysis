@@ -1,0 +1,84 @@
+{
+  "name": "uinno/code-analysis",
+  "description": "Review your code to detect, understand and fix issues fast. Security issues in code, Static Code Analysis, Refactoring issues, Coding Standards issues.",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Anatoliy Gerasimov",
+      "email": "anatoly.gerasimov@uinno.io"
+    }
+  ],
+  "extra": {
+    "code": {
+      "rector": {
+        "paths": [
+          "/src"
+        ],
+        "skip": [
+
+        ]
+      },
+      "cs-fixer": {
+        "paths": [
+          "/src"
+        ],
+        "skip": [
+
+        ]
+      },
+      "psalm": {
+        "paths": [
+          "/src"
+        ],
+        "skip": [
+          "/vendor"
+        ],
+        "config": {
+        }
+      }
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "Code\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Code\\": "src/"
+    }
+  },
+  "require": {
+    "rector/rector": "^0.12.2 <0.12.21",
+    "friendsofphp/php-cs-fixer": "^3.2.1",
+    "vimeo/psalm": "^4.12.0",
+    "ext-simplexml": "*",
+    "ext-dom": "*",
+    "enlightn/security-checker": "^1.10",
+    "icanhazstring/composer-unused": "^0.8.2",
+    "roave/security-advisories": "dev-latest"
+  },
+  "scripts": {
+    "rector": [
+      "./vendor/bin/rector process --config=./configs/rector.php  --clear-cache"
+    ],
+    "rector-check": [
+      "./vendor/bin/rector process --config=./configs/rector.php  --clear-cache --dry-run"
+    ],
+    "php-cs-fixer": [
+      "./vendor/bin/php-cs-fixer fix --config=./configs/.php_cs.dist.php --allow-risky=yes --using-cache=no"
+    ],
+    "php-cs-fixer-check": [
+      "./vendor/bin/php-cs-fixer fix --dry-run --config=./configs/.php_cs.dist.php --diff -vv --allow-risky=yes --using-cache=no"
+    ],
+    "psalm": [
+      "php src/psalm_config.php --config=./configs/psalm.php --target=./psalm.xml",
+      "./vendor/bin/psalm --threads=4 --no-cache --config=./psalm.xml",
+      "rm ./psalm.xml"
+    ],
+    "enlightn-security-checker": [
+      "./vendor/bin/security-checker security:check ./composer.lock --format=json"
+    ]
+  }
+}
