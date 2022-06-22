@@ -57,21 +57,30 @@ Review your code to detect, understand and fix issues fast. Security issues in c
   ```json
   "scripts": {
     "rector": [
-      "./vendor/bin/rector process --config=./vendor/anatolygerasimov/code/configs/rector.php  --clear-cache"
+      "./vendor/bin/rector process --config=./vendor/uinno/code-analysis/code/configs/rector.php  --clear-cache"
     ],
     "rector-check": [
-      "./vendor/bin/rector process --config=./vendor/anatolygerasimov/code/configs/rector.php  --clear-cache --dry-run"
+      "./vendor/bin/rector process --config=./vendor/uinno/code-analysis/code/configs/rector.php  --clear-cache --dry-run"
     ],
     "php-cs-fixer": [
-      "./vendor/bin/php-cs-fixer fix --config=./vendor/anatolygerasimov/code/configs/.php_cs.dist.php --allow-risky=yes --using-cache=no"
+      "./vendor/bin/php-cs-fixer fix --config=./vendor/uinno/code-analysis/code/configs/.php_cs.dist.php --allow-risky=yes --using-cache=no"
     ],
     "php-cs-fixer-check": [
-      "./vendor/bin/php-cs-fixer fix --dry-run --config=./vendor/anatolygerasimov/code/configs/.php_cs.dist.php --diff -vv --allow-risky=yes --using-cache=no"
+      "./vendor/bin/php-cs-fixer fix --dry-run --config=./vendor/uinno/code-analysis/code/configs/.php_cs.dist.php --diff -vv --allow-risky=yes --using-cache=no"
     ],
     "psalm": [
-      "php ./vendor/anatolygerasimov/code/src/psalm_config.php --target=./psalm.xml",
+      "php ./vendor/uinno/code-analysis/code/src/psalm_config.php --target=./psalm.xml",
       "./vendor/bin/psalm --threads=4 --no-cache --config=./psalm.xml",
       "rm ./psalm.xml"
+    ],
+    "enlightn-security-checker": [
+      "./vendor/bin/security-checker security:check ./composer.lock --format=json"
+    ],
+    "unused": [
+      "composer unused --no-progress"
+    ],
+    "validity": [
+      "composer validate --no-check-all --no-check-publish"
     ]
   }
   ```
