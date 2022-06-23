@@ -56,7 +56,6 @@
     "ext-simplexml": "*",
     "ext-dom": "*",
     "enlightn/security-checker": "^1.10",
-    "icanhazstring/composer-unused": "^0.8.2",
     "roave/security-advisories": "dev-latest"
   },
   "scripts": {
