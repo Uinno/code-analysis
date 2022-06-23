@@ -2,7 +2,9 @@
 Review your code to detect, understand and fix issues fast. Security issues in code, Static Code Analysis, Refactoring issues, Coding Standards issues.
 
 ### Usage ###
-- ```$ composer require uinno/code-analysis```
+- ```$ composer require uinno/code-analysis --dev```
+- ```$ composer require icanhazstring/composer-unused --dev```
+- ```$ composer require roave/security-advisories:dev-latest --dev```
 - ```$ composer require psalm/plugin-laravel``` (If you are using Laravel in your project.)
 - add folder configuration for ```composer.json```
   ```json
