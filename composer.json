@@ -78,5 +78,11 @@
     "enlightn-security-checker": [
       "./vendor/bin/security-checker security:check ./composer.lock --format=json"
     ]
+  },
+  "suggest": {
+    "icanhazstring/composer-unused": "In additional we recommended install this plugin",
+    "roave/security-advisories:dev-latest": "In additional we recommended install this plugin",
+    "psalm/plugin-symfony": "If Symfony is used, it is recommended install this plugin",
+    "psalm/plugin-laravel": "If Laravel is used, it is recommended install this plugin"
   }
 }

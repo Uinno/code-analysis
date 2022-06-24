@@ -5,7 +5,7 @@ Review your code to detect, understand and fix issues fast. Security issues in c
 - ```$ composer require uinno/code-analysis --dev```
 - ```$ composer require icanhazstring/composer-unused --dev```
 - ```$ composer require roave/security-advisories:dev-latest --dev```
-- ```$ composer require psalm/plugin-laravel``` (If you are using Laravel in your project.)
+- ```$ composer require psalm/plugin-laravel --dev``` (If you are using Laravel in your project.)
 - add folder configuration for ```composer.json```
   ```json
   "extra": {
